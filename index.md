@@ -2,12 +2,19 @@
 
 A practical command-line checker for reviewing robots.txt syntax, user-agent groups, crawl directives, sitemap references, and common crawl-control mistakes.
 
-## Quick start
+## Get the tool
+
+This is a **command-line tool**, not a browser-based checker.
+
+[Download the latest source as a ZIP](https://github.com/nadeemalamseo/robots-txt-checker/archive/refs/heads/main.zip) or open the [GitHub repository](https://github.com/nadeemalamseo/robots-txt-checker).
+
+After downloading and extracting:
 
 ```bash
 python robots_txt_checker.py https://example.com
 python robots_txt_checker.py https://example.com/robots.txt
 python robots_txt_checker.py ./robots.txt
+python robots_txt_checker.py https://example.com --json
 ```
 
 For machine-readable output:
@@ -19,7 +26,3 @@ python robots_txt_checker.py https://example.com --json
 ## What the results mean
 
 The checker reports observable syntax and HTTP conditions. A finding does not by itself establish how a particular search engine will crawl, index, or rank a URL.
-
-## Related resource
-
-For broader guidance on technical SEO implementation and site-level diagnostics, see [MarketLatch SEO Services](https://marketlatch.com/seo-services/).
