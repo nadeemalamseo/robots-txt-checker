@@ -46,7 +46,7 @@ These codes describe the checker's findings. They do not predict how every crawl
 ## Important interpretation notes
 
 - robots.txt is a crawler instruction protocol, **not access control**. Do not use it to protect confidential resources.
-- Sitemap records are global extension records. They do not start, end, or split a user-agent group.
+- Sitemap records are global extension records. They do not start, end, or split a user-agent group. Other extension records are retained separately and must not alter group boundaries.
 - Rules outside a user-agent group are reported and not assigned to an invented wildcard group.
 - RFC 9309 distinguishes HTTP 4xx "unavailable" responses from 5xx "unreachable" responses. This checker reports the observed response class; it does not emulate every search engine's policy.
 - Crawl-delay and Host are not part of the core RFC 9309 protocol. Support varies by crawler.
