@@ -35,6 +35,7 @@ class Issue:
 class Group:
     user_agents: list[str] = field(default_factory=list)
     directives: list[dict] = field(default_factory=list)
+    other_records: list[dict] = field(default_factory=list)
 
 
 @dataclass
@@ -197,7 +198,7 @@ def parse_robots_text(text: str, source: str = "robots.txt") -> RobotsResult:
         # Preserve non-standard records only when they occur inside a group.
         # They do not create a synthetic wildcard group.
         if current is not None:
-            current.directives.append({"name": name, "value": value, "line": line_number})
+            current.other_records.append({"name": name, "value": value, "line": line_number})
         else:
             issues.append(Issue(
                 "warning",
