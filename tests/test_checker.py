@@ -77,6 +77,17 @@ class RobotsCheckerTests(unittest.TestCase):
         self.assertEqual(len(result.groups), 1)
         self.assertEqual(result.groups[0].user_agents, ["examplebot", "otherbot"])
 
+    def test_nonstandard_records_do_not_split_user_agent_group(self):
+        result = parse_robots_text(
+            "User-agent: FirstBot\\n"
+            "Crawl-delay: 10\\n"
+            "User-agent: SecondBot\\n"
+            "Disallow: /private/\\n"
+        )
+        self.assertEqual(len(result.groups), 1)
+        self.assertEqual(result.groups[0].user_agents, ["firstbot", "secondbot"])
+        self.assertEqual(result.groups[0].other_records[0]["name"], "crawl-delay")
+
     def test_multiple_sitemaps_are_global_and_duplicates_reported(self):
         result = parse_robots_text(
             "Sitemap: https://example.com/a.xml\n"
