@@ -27,7 +27,7 @@ RFC 9309 defines user-agent groups and Allow/Disallow rules. It also says other 
 - User-agent groups are built from User-agent records and their following records.
 - Consecutive User-agent records before rules are kept in the same group.
 - A new User-agent after group rules begins a new group.
-- Sitemap records are collected globally. They do not create a group or terminate/split a group.
+- Sitemap records are collected globally. They do not create a group or terminate/split a group. Other extension/unknown records are retained separately and do not change group boundaries.
 - Allow and Disallow records outside a User-agent group are reported and not assigned to an artificial wildcard group.
 - Non-empty Allow/Disallow paths are expected to begin with `/`; empty values are retained as empty rules and reported informationally.
 - User-agent product tokens are checked against the RFC 9309 token character set; the wildcard `*` is accepted.
