@@ -79,10 +79,10 @@ class RobotsCheckerTests(unittest.TestCase):
 
     def test_nonstandard_records_do_not_split_user_agent_group(self):
         result = parse_robots_text(
-            "User-agent: FirstBot\\n"
-            "Crawl-delay: 10\\n"
-            "User-agent: SecondBot\\n"
-            "Disallow: /private/\\n"
+            "User-agent: FirstBot\n"
+            "Crawl-delay: 10\n"
+            "User-agent: SecondBot\n"
+            "Disallow: /private/\n"
         )
         self.assertEqual(len(result.groups), 1)
         self.assertEqual(result.groups[0].user_agents, ["firstbot", "secondbot"])
